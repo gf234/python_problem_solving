@@ -1,5 +1,5 @@
-def solution(n, costs):
-    answer = 0
+def solution(n, build_frame):
+    answer = [[]]
 
     
 
