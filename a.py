@@ -1,16 +1,7 @@
-from itertools import combinations
-from collections import Counter
+from itertools import permutations
 
 
-def solution(a):
-    if len(a) < 2:
-        return 0
-
-    c = Counter(a)
-    if len(c) >= 2:
-        answer = 2
-    else:
-        return 0
-    
-
-    return answer
+def solution(n, k):
+    arr = [i for i in range(1, n+1)]
+    permuts = list(permutations(arr, n))
+    return list(permuts[n-1])
