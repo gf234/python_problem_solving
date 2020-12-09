@@ -1,13 +1,12 @@
-import math
+from collections import deque
 
 
-def solution(arr):
-    if len(arr) == 1:
-        return arr[0]
-
-    gcd = math.gcd(arr[0], arr[1])
-    lcm = arr[0]*arr[1] // gcd
-    for x in arr[2:]:
-        gcd = math.gcd(lcm, x)
-        lcm = lcm*x // gcd
-    return lcm
+def solution(gems):
+    start = 1
+    end = 1
+    startGem = -1
+    choosed = set()
+    for i, gem in enumerate(gems, 1):
+        if gem not in choosed:
+            end = i
+            choosed.add(gem)
