@@ -21,7 +21,6 @@ def commonChild(s1, s2):
                 cache[i2+1][i1+1] = cache[i2][i1] + 1
             else:
                 cache[i2+1][i1+1] = max(cache[i2][i1+1], cache[i2+1][i1])
-
     return cache[-1][-1]
 
 
