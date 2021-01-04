@@ -6,34 +6,46 @@ import random
 import re
 import sys
 
-# Complete the pairs function below.
+# Complete the triplets function below.
 
 
-def pairs(k, arr):
-    numSet = set(arr)
+def triplets(a, b, c):
+    answer = 0
 
-    answerSet = set()
-    for num in arr:
-        if num+k in numSet:
-            answerSet.add(frozenset((num, num+k)))
-        if num-k in numSet:
-            answerSet.add(frozenset((num, num-k)))
-    return len(answerSet)
+    a = sorted(list(set(a)))
+    b = sorted(list(set(b)))
+    c = sorted(list(set(c)))
+
+    ai = 0
+    ci = 0
+    for bb in b:
+        while ai < len(a) and a[ai] <= bb:
+            ai += 1
+        while ci < len(c) and c[ci] <= bb:
+            ci += 1
+        answer += ai * ci
+    return answer
 
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    nk = input().split()
+    lenaLenbLenc = input().split()
 
-    n = int(nk[0])
+    lena = int(lenaLenbLenc[0])
 
-    k = int(nk[1])
+    lenb = int(lenaLenbLenc[1])
 
-    arr = list(map(int, input().rstrip().split()))
+    lenc = int(lenaLenbLenc[2])
 
-    result = pairs(k, arr)
+    arra = list(map(int, input().rstrip().split()))
 
-    fptr.write(str(result) + '\n')
+    arrb = list(map(int, input().rstrip().split()))
+
+    arrc = list(map(int, input().rstrip().split()))
+
+    ans = triplets(arra, arrb, arrc)
+
+    fptr.write(str(ans) + '\n')
 
     fptr.close()
