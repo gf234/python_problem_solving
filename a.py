@@ -1,20 +1,34 @@
-def solution(N, stages):
-    reachNums = [0 for _ in range(N+1)]
-    stuckNums = [0 for _ in range(N+1)]
+def solution(n, arr1, arr2):
+    def convert(arr):
+        map = [[0 for _ in range(n)] for _ in range(n)]
 
-    for stage in stages:
-        for i in range(1, stage+1):
-            if i <= N:
-                reachNums[i] += 1
-        if stage <= N:
-            stuckNums[stage] += 1
+        for i, code in enumerate(arr):
+            binStr = bin(code)[2:]
+            strLen = len(binStr)
 
-    failuerRates = []
-    for i in range(1, N+1):
-        if reachNums[i] != 0:
-            failuerRates.append((-(stuckNums[i]/reachNums[i]), i))
-        else:
-            failuerRates.append((0, i))
-    failuerRates.sort()
+            for j in range(strLen):
+                if binStr[j] == '1':
+                    map[i][n-strLen+j] = 1
+        return map
 
-    return [x[1] for x in failuerRates]
+    map1 = convert(arr1)
+    map2 = convert(arr2)
+
+    answer = []
+
+    for i in range(n):
+        row = ""
+        for j in range(n):
+            if map1[i][j] or map2[i][j]:
+                row += '#'
+            else:
+                row += ' '
+        answer.append(row)
+
+    return answer
+
+
+n = 5
+arr1 = [9, 20, 28, 18, 11]
+arr2 = [30, 1, 21, 17, 28]
+solution(n, arr1, arr2)
