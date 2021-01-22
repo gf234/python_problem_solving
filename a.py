@@ -1,5 +1,7 @@
-#!/bin/python3
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
 
+<<<<<<< HEAD
 import math
 import os
 import random
@@ -85,3 +87,8 @@ if __name__ == '__main__':
     fptr.write('\n')
 
     fptr.close()
+=======
+def solution(A):
+    # write your code in Python 3.6
+    
+>>>>>>> 68ca980639b35f3069b85636f23c366bcd587cf9
