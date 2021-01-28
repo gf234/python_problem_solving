@@ -2,9 +2,11 @@ import sys
 
 
 def mergeSort(arr):
-    if len(arr) <= 1:
+    n = len(arr)
+    if n <= 1:
         return arr
-    mid = len(arr) // 2
+
+    mid = n // 2
     left = arr[:mid]
     right = arr[mid:]
     left = mergeSort(left)
@@ -30,11 +32,5 @@ def merge(left, right):
     return ret
 
 
-n = int(input())
-arr = []
-for _ in range(n):
-    arr.append(int(sys.stdin.readline().rstrip()))
-arr = mergeSort(arr)
-
-for x in arr:
-    print(x)
+arr = [3, 5, 1, 4, 2]
+print(mergeSort(arr))
