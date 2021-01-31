@@ -10,8 +10,8 @@ import sys
 
 
 def flippingBits(n):
-    # int를 unsigned int로 변환하려면 & 0xffffffff를 해주면 된다.
-    return int(bin(~n & 0xffffffff), 2)
+    # unsigned int 로 변환하려면 & 0xffffffff 를 해주면 된다.
+    return ~n & 0xffffffff
 
 
 if __name__ == '__main__':
