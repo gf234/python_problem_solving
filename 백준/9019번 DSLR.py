@@ -19,17 +19,11 @@ for _ in range(t):
         return n
 
     def l(n):
-        s = str(n)
-        if len(s) < 4:
-            s = '0'*(4-len(s)) + s
-        n = int(s[1]+s[2]+s[3]+s[0])
+        n = (n % 1000)*10+n//1000
         return n
 
     def r(n):
-        s = str(n)
-        if len(s) < 4:
-            s = '0'*(4-len(s)) + s
-        n = int(s[3]+s[0]+s[1]+s[2])
+        n = (n % 10) * 1000 + n//10
         return n
 
     q = deque()
