@@ -11,23 +11,18 @@ for _ in range(t):
     # a % n = y
     # a = m*? + x
     # a = n*? + y
-    possibles = set()
-    i = 0
+    if m < n:
+        m, n = n, m
+        x, y = y, x
+    if y == n:
+        y = 0
     while True:
-        temp = m*i + x
-        if temp <= lcm:
-            possibles.add(temp)
-            i += 1
+        if x <= lcm:
+            if x % n == y:
+                answer = x
+                break
+            x += m
         else:
             break
 
-    i = 0
-    while True:
-        temp = n*i + y
-        if temp > lcm:
-            break
-        if temp in possibles:
-            answer = temp
-            break
-        i += 1
     print(answer)
