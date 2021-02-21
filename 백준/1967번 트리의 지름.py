@@ -33,6 +33,6 @@ def bfs(start):
                     maxNode = there
     return maxNode, maxVal
 
-
+# 루트에서 가장 멀리있는 노드를 구하고 그 노드에서 가장 멀리있는 노드를 찾으면 트리의 지름이 된다.
 temp, _ = bfs(1)
 print(bfs(temp)[1])
