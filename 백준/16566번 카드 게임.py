@@ -21,11 +21,9 @@ for card in cards:
 
 for target in targets:
     minimum = target + 1
-    # minimum이 불가능하면 다음 더미를 검사하여 가능한 값이 있는 더미로 변경해준다.
-    while dummy[minimum // sqrt_n] == 0 and minimum <= n:
-        minimum = ((minimum//sqrt_n) + 1) * sqrt_n
-
     while True:
+        while dummy[minimum//sqrt_n] == 0:
+            minimum = (minimum//sqrt_n+1) * sqrt_n
         if isPresence[minimum]:
             isPresence[minimum] = False
             dummy[minimum//sqrt_n] -= 1
