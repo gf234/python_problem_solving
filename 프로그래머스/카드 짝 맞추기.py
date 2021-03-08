@@ -8,7 +8,7 @@ def solution(board, r, c):
     answer = math.inf
     # 쉬프트 누르고 이동하는 경우 좌표들을 반환
 
-    def shift(start):
+    def ctrl(start):
         ret = []
         x, y = start
         dx = (1, 0, -1, 0)
@@ -52,8 +52,8 @@ def solution(board, r, c):
                     dist[(nx, ny)] = nd
                     q.append((nx, ny))
 
-            shifts = shift((x, y))
-            for nx, ny in shifts:
+            ctrls = ctrl((x, y))
+            for nx, ny in ctrls:
                 if 0 <= nx < 4 and 0 <= ny < 4 and dist[(nx, ny)] > nd:
                     if (nx, ny) == target:
                         return nd
